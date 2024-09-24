@@ -1,0 +1,44 @@
+Create table CountyDemo (
+year int not null unique, 
+White int, 
+Hispanic int, 
+Black int, 
+AAPI int, 
+Multiracial int, 
+Indigenous int, 
+other int, 
+state varchar(20), 
+county varchar(20), 
+source longtext, 
+primary key (year)
+);
+
+load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/My_County_Ethnicities.csv'
+into table CountyDemo
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
+
+Select * from CountyDemo;
+
+with t as (
+select 
+year, (White + Hispanic + Black + AAPI + Multiracial + Indigenous + other) as Total_Pop
+from PolkDemo
+) 
+Select t.year, t.Total_Pop,
+White,
+(White / Total_Pop) as white_pct,
+Black,
+(Black / Total_Pop) as black_pct,
+Hispanic,
+(Hispanic / Total_Pop) as hispanic_pct,
+AAPI,
+(AAPI / Total_Pop) as aapi_pct,
+Multiracial,
+(Multiracial / Total_Pop) as multi_pct,
+Indigenous,
+(Indigenous / Total_Pop) as ind_pct
+from t
+join CountyDemo p on t.year = p.year;

@@ -1,0 +1,5 @@
+School,Student Count,White_pct,White_Count,Black-pct,Black_Count,Hispanic_pct,Hisp_Count,AAPI_pct,AAPI_Count,Multi-Racial_pct,MR_Cont,Indigenous_pct,Ind_Count,Source
+Hogwarts,770,56,432,9,68,25,190,3,23,7,55,0,0,TheWeb
+HardKnocks,648,52,402,10,79,27,210,3,20,7,53,0,0,TheWeb
+CoolSchool,558,41,315,18,138,29,224,4,33,6,46,0,0,TheWeb
+All,1976,0.58,1148,0.14,285,0.32,624,0.04,76,20,154,0,0,TheWeb
